@@ -1,11 +1,15 @@
-const intervalID = setInterval(timeCount, 1000);
+function startGame(){
+    const intervalID = setInterval(timeCount, 1000);
+    timeShow.innerText = time;
+}
+
 const timeShow = document.getElementById("timer");
 let time = 30;
 
 function timeCount(){
-    timeShow.innerText = time;
+
     time -= 1;
-    
+    timeShow.innerText = time;
 }
 
 setTimeout(() => { 
