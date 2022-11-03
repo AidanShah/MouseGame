@@ -1,14 +1,13 @@
 const intervalID = setInterval(timeCount, 1000);
 const timeShow = document.getElementById("timer");
-let time = 31;
+let time = 30;
 
 function timeCount(){
-
-    time -= 1;
     timeShow.innerText = time;
+    time -= 1;
     
 }
 
 setTimeout(() => { 
     clearInterval(intervalID);
-}, (30 * 1000));
+}, (31 * 1000));
