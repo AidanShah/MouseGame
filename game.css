@@ -1,0 +1,8 @@
+.target{
+    border-radius: 1000px;
+    padding: 100px 100px;
+    border: 1px solid rgb(255, 0, 0);
+    background: #ff0000;
+    font-size: 2em;
+    cursor: pointer;
+}
