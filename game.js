@@ -1,6 +1,9 @@
 let intervalID = 0;
 
 function startGame(){
+    if(intervalID != 0){
+        return;
+    }
     intervalID = setInterval(timeCount, 1000);
     timeShow.innerText = "Time Remaining: " + time;
 
