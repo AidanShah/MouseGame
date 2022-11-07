@@ -1,5 +1,6 @@
 let intervalID = 0;
-
+const TIME_REMAINING = 5;
+let time = TIME_REMAINING;
 function startGame(){
     if(intervalID != 0){
         return;
@@ -8,16 +9,18 @@ function startGame(){
     timeShow.innerText = "Time Remaining: " + time;
 
     setTimeout(() => { 
-        time = 30;
+        time = TIME_REMAINING;
         clearInterval(intervalID);
+        intervalID = 0;
 
         timeShow.innerText = "Game Over";
 
-    }, (30 * 1000));
+    }, (TIME_REMAINING * 1000));
+
+    randomPos();
 }
 
 const timeShow = document.getElementById("timer");
-let time = 30;
 
 function timeCount(){
     time -= 1;
