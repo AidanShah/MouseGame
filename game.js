@@ -1,6 +1,16 @@
+let intervalID = 0;
+
 function startGame(){
-    const intervalID = setInterval(timeCount, 1000);
+    intervalID = setInterval(timeCount, 1000);
     timeShow.innerText = "Time Remaining: " + time;
+
+    setTimeout(() => { 
+        time = 30;
+        clearInterval(intervalID);
+
+        timeShow.innerText = "Game Over";
+
+    }, (30 * 1000));
 }
 
 const timeShow = document.getElementById("timer");
@@ -11,6 +21,3 @@ function timeCount(){
     timeShow.innerText = "Time Remaining: " + time;
 }
 
-setTimeout(() => { 
-    clearInterval(intervalID);
-}, (31 * 1000));
