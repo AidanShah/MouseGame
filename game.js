@@ -24,3 +24,13 @@ function timeCount(){
     timeShow.innerText = "Time Remaining: " + time;
 }
 
+function randomPos(){
+    const target = document.getElementById("redButton");
+    let height = document.body.clientHeight;
+    let width = document.body.clientWidth;
+    let randHeight = Math.floor(Math.random() * (height - target.offsetHeight));
+    let randWidth = Math.floor(Math.random() * (width - target.offsetWidth));
+    target.style.position = "absolute";
+    target.style.top = randHeight + "px";
+    target.style.left = randWidth + "px";
+}
