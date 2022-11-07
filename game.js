@@ -24,3 +24,10 @@ function timeCount(){
     timeShow.innerText = "Time Remaining: " + time;
 }
 
+target.onclick = function pressButton(){
+    score += 1;
+    document.getElementById("score").innerText = " Score: " + String(score) + " ";
+};
+
+
+
