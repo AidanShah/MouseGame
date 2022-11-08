@@ -27,11 +27,18 @@ function timeCount(){
     timeShow.innerText = "Time Remaining: " + time;
 }
 
-target.onclick = function pressButton(){
+function pressButton(){
     score += 1;
     document.getElementById("score").innerText = " Score: " + String(score) + " ";
+    let die = getElementById("target");
+    die.remove(); 
+    var myDiv = document.getElementById("GFG");
+    var button = document.createElement('BUTTON');
+    button.setAttribute("id","target");
+    button.setAttribute("class","target");
+    button.setAttribute("onclick","pressButton()");
+    myDiv.appendChild(button);
 };
-
 
 
 function randomPos(){
