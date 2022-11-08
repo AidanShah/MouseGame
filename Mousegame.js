@@ -1,25 +1,38 @@
+let intervalID = 0;
+const TIME_REMAINING = 5;
+let time = TIME_REMAINING;
+let score = 0;
 function startGame(){
-    const intervalID = setInterval(timeCount, 1000);
+    if(intervalID != 0){
+        return;
+    }
+    intervalID = setInterval(timeCount, 1000);
     timeShow.innerText = "Time Remaining: " + time;
+
+    setTimeout(() => { 
+        time = TIME_REMAINING;
+        clearInterval(intervalID);
+        intervalID = 0;
+
+        timeShow.innerText = "Game Over";
+
+    }, (TIME_REMAINING * 1000));
     var myDiv = document.getElementById("GFG");
     var button = document.createElement('BUTTON');
     button.setAttribute("id","target");
     button.setAttribute("class","target");
     button.setAttribute("onclick","pressButton()");
     myDiv.appendChild(button);
+    randomPos();
 }
 
 const timeShow = document.getElementById("timer");
-let time = 30;
-let score = 0;
+
 function timeCount(){
     time -= 1;
     timeShow.innerText = "Time Remaining: " + time;
 }
 
-setTimeout(() => { 
-    clearInterval(intervalID);
-}, (31 * 1000));
 function pressButton(){
     score += 1;
     document.getElementById("score").innerText = " Score: " + String(score) + " ";
@@ -31,4 +44,18 @@ function pressButton(){
     button.setAttribute("class","target");
     button.setAttribute("onclick","pressButton()");
     myDiv.appendChild(button);
+    randomPos();
 };
+
+
+
+function randomPos(){
+    const target = document.getElementById("target");
+    let height = document.body.clientHeight;
+    let width = document.body.clientWidth;
+    let randHeight = Math.floor(Math.random() * (height - target.offsetHeight));
+    let randWidth = Math.floor(Math.random() * (width - target.offsetWidth));
+    target.style.position = "absolute";
+    target.style.top = randHeight + "px";
+    target.style.left = randWidth + "px";
+}
