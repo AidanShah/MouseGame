@@ -15,6 +15,7 @@ function startGame(){
         intervalID = 0;
 
         timeShow.innerText = "Game Over";
+        button.remove();
 
     }, (TIME_REMAINING * 1000));
     var myDiv = document.getElementById("GFG");
