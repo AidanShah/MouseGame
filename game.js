@@ -14,6 +14,8 @@ function startGame(){
         clearInterval(intervalID);
         intervalID = 0;
 
+        score = 0;
+
         timeShow.innerText = "Game Over";
         button.remove();
 
