@@ -1,6 +1,7 @@
 let intervalID = 0;
 const TIME_REMAINING = 5;
 let time = TIME_REMAINING;
+let score = 0;
 function startGame(){
     if(intervalID != 0){
         return;
@@ -16,7 +17,12 @@ function startGame(){
         timeShow.innerText = "Game Over";
 
     }, (TIME_REMAINING * 1000));
-
+    var myDiv = document.getElementById("GFG");
+    var button = document.createElement('BUTTON');
+    button.setAttribute("id","target");
+    button.setAttribute("class","target");
+    button.setAttribute("onclick","pressButton()");
+    myDiv.appendChild(button);
     randomPos();
 }
 
@@ -38,11 +44,12 @@ function pressButton(){
     button.setAttribute("class","target");
     button.setAttribute("onclick","pressButton()");
     myDiv.appendChild(button);
+    randomPos();
 };
 
 
 function randomPos(){
-    const target = document.getElementById("redButton");
+    const target = document.getElementById("target");
     let height = document.body.clientHeight;
     let width = document.body.clientWidth;
     let randHeight = Math.floor(Math.random() * (height - target.offsetHeight));
