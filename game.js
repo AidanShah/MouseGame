@@ -2,6 +2,8 @@ let intervalID = 0;
 const TIME_REMAINING = 5;
 let time = TIME_REMAINING;
 let score = 0;
+var button = document.createElement('BUTTON');
+
 function startGame(){
     if(intervalID != 0){
         return;
@@ -20,13 +22,17 @@ function startGame(){
         button.remove();
 
     }, (TIME_REMAINING * 1000));
+    buttonCreate();
+
+    randomPos();
+}
+
+function buttonCreate(){
     var myDiv = document.getElementById("GFG");
-    var button = document.createElement('BUTTON');
     button.setAttribute("id","target");
     button.setAttribute("class","target");
     button.setAttribute("onclick","pressButton()");
     myDiv.appendChild(button);
-    randomPos();
 }
 
 const timeShow = document.getElementById("timer");
