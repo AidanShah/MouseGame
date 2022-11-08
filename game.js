@@ -36,6 +36,7 @@ function timeCount(){
 function pressButton(){
     score += 1;
     document.getElementById("score").innerText = " Score: " + String(score) + " ";
+    /*
     let die = getElementById("target");
     die.remove(); 
     var myDiv = document.getElementById("GFG");
@@ -43,7 +44,7 @@ function pressButton(){
     button.setAttribute("id","target");
     button.setAttribute("class","target");
     button.setAttribute("onclick","pressButton()");
-    myDiv.appendChild(button);
+    myDiv.appendChild(button);*/
     randomPos();
 };
 
