@@ -23,6 +23,7 @@ body {
     50%  {height:100px; width: 100px;}
     100% {height:15px; width:15px}
   }
+  
 div {
     width: 320px;
     padding: 10px;
