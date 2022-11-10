@@ -10,22 +10,20 @@ let missed = 0;
 
 //function that starts the game and sets a timer that will eventually end the game
 function startGame(){
+    //sets timer
     if(intervalID != 0){
         return;
     }
     intervalID = setInterval(timeCount, 1000);
     timeShow.innerText = "Time Remaining: " + time;
-
+    //describes what happens when the game ends
     setTimeout(() => { 
         time = TIME_REMAINING;
         clearInterval(intervalID);
         intervalID = 0;
-        accuracy = score/missed*100;
-        var myDiv = document.getElementById("buttons");
-        var accuracyDisplay = document.createElement('p');
-        accuracyDisplay.setAttribute("id","accuracy");
-        document.getElementById("accuracy").innerText = String(accuracy);
-        myDiv.appendChild(button);
+        accuracy = score/(missed+score)*100;
+        document.getElementById("accuracy").innerText = "Accuracy: " + String(accuracy);
+        document.getElementById("totalTargets").innerText = "Total Targets: " + String(missed+score);
         score = 0;
 
         timeShow.innerText = "Game Over";
