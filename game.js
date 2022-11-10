@@ -1,5 +1,5 @@
 let intervalID = 0;
-const TIME_REMAINING = 5;
+const TIME_REMAINING = 10;
 let time = TIME_REMAINING;
 let score = 0;
 function startGame(){
