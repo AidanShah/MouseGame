@@ -7,6 +7,7 @@ var button = document.createElement('BUTTON');
 const timeShow = document.getElementById("timer");
 let accuracy = 0;
 let missed = 0;
+const BUTTON_TIME = 3;
 
 //function that starts the game and sets a timer that will eventually end the game
 function startGame(){
@@ -30,7 +31,10 @@ function startGame(){
         button.remove();
 
     }, (TIME_REMAINING * 1000));
-    buttonCreate();
+    
+    setTimeout(() => {
+        buttonCreate();
+    }, (BUTTON_TIME * 1000));
 
     randomPos();
 }
