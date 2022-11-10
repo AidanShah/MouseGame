@@ -32,9 +32,7 @@ function startGame(){
 
     }, (TIME_REMAINING * 1000));
     
-    setTimeout(() => {
-        buttonCreate();
-    }, (BUTTON_TIME * 1000));
+    buttonCreate();
 
     randomPos();
 }
