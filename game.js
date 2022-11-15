@@ -15,6 +15,7 @@ function startGame(){
         return;
     }
     intervalID = setInterval(timeCount, 1000);
+    //resets text
     document.getElementById("accuracy").innerText = "Accuracy: ";
     document.getElementById("score").innerText = "Score: ";
     document.getElementById("totalTargets").innerText = "Total Targets: ";
@@ -53,7 +54,7 @@ function timeCount(){
     time -= 1;
     timeShow.innerText = "Time Remaining: " + time;
 }
-
+//allows the target to be missed when the animation ends
 button.addEventListener('animationend', () => {
     missedButton();
   });
@@ -65,6 +66,7 @@ function pressButton(){
     buttonCreate();
     randomPos();
 };
+//creates a new button when the target has been missed
 function missedButton(){
     missed += 1;
     button.remove();
