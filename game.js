@@ -7,7 +7,6 @@ var button = document.createElement('BUTTON');
 const timeShow = document.getElementById("timer");
 let accuracy = 0;
 let missed = 0;
-const BUTTON_TIME = 3;
 
 //function that starts the game and sets a timer that will eventually end the game
 function startGame(){
@@ -16,6 +15,9 @@ function startGame(){
         return;
     }
     intervalID = setInterval(timeCount, 1000);
+    document.getElementById("accuracy").innerText = "Accuracy: ";
+    document.getElementById("score").innerText = "Score: ";
+    document.getElementById("totalTargets").innerText = "Total Targets: ";
     timeShow.innerText = "Time Remaining: " + time;
     //describes what happens when the game ends
     setTimeout(() => { 
@@ -23,9 +25,10 @@ function startGame(){
         clearInterval(intervalID);
         intervalID = 0;
         accuracy = score/(missed+score)*100;
-        document.getElementById("accuracy").innerText = "Accuracy: " + String(accuracy);
+        document.getElementById("accuracy").innerText = "Accuracy: " + String(accuracy) + "%";
         document.getElementById("totalTargets").innerText = "Total Targets: " + String(missed+score);
         score = 0;
+        missed = 0;
 
         timeShow.innerText = "Game Over";
         button.remove();
@@ -51,10 +54,19 @@ function timeCount(){
     timeShow.innerText = "Time Remaining: " + time;
 }
 
+button.addEventListener('animationend', () => {
+    missedButton();
+  });
 //function that incriments score when the button is pressed
 function pressButton(){
     score += 1;
     document.getElementById("score").innerText = " Score: " + String(score) + " ";
+    button.remove();
+    buttonCreate();
+    randomPos();
+};
+function missedButton(){
+    missed += 1;
     button.remove();
     buttonCreate();
     randomPos();
